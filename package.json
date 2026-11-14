@@ -1,0 +1,8 @@
+{
+  "name": "batch-waitlist",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "nodemailer": "^6.9.16" }
+}
