@@ -79,7 +79,8 @@
   main {
     width: 100%;
     display: flex; flex-direction: column; align-items: center;
-    padding: clamp(120px, 20vh, 210px) 16px 0;
+    margin-top: auto;
+    padding: clamp(16px, 4svh, 40px) 16px 0;
     padding-left: max(16px, env(safe-area-inset-left));
     padding-right: max(16px, env(safe-area-inset-right));
   }
@@ -101,8 +102,8 @@
   }
 
   h1 {
-    margin: 22px 0 0;
-    font-size: clamp(46px, 8.4vw, 116px);
+    margin: 0;
+    font-size: clamp(42px, min(8.4vw, 13svh), 116px);
     font-weight: 600;
     line-height: .95;
     letter-spacing: -.075em;
@@ -119,7 +120,7 @@
     position: relative; z-index: 2;
     width: min(724px, 100%);
     margin-top: clamp(-10px, -.5vw, -4px);
-    padding: 56px 32px 56px;
+    padding: clamp(20px, 4svh, 40px) 32px;
     border-radius: 40px;
     text-align: center;
     background:
@@ -147,7 +148,7 @@
   }
 
   form {
-    margin: 40px auto 0;
+    margin: clamp(20px, 4svh, 32px) auto 0;
     display: flex; gap: 16px; justify-content: center; align-items: center;
     max-width: 390px;
   }
@@ -224,7 +225,9 @@
     position: relative;
     width: 100%;
     margin-top: auto;
-    height: clamp(170px, 21vw, 300px);
+    height: min(24svh, 24vw);
+    min-height: 76px;
+    flex-shrink: 0;
     display: flex; justify-content: center;
     overflow: hidden;
     pointer-events: none;
@@ -233,9 +236,9 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 22%);
+    transform: translateX(-50%);
     margin: 0;
-    font-size: clamp(200px, 30vw, 470px);
+    font-size: min(30vw, 30svh, 470px);
     font-weight: 600;
     line-height: .8;
     letter-spacing: -.04em;
@@ -251,7 +254,7 @@
     width: 100%;
     display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
     gap: 6px 16px;
-    padding: 26px 16px max(26px, calc(env(safe-area-inset-bottom) + 16px));
+    padding: clamp(10px, 2svh, 20px) 16px max(10px, calc(env(safe-area-inset-bottom) + 10px));
     border-top: 1px solid rgba(255,255,255,.08);
     background: #000;
     font-size: 13px; color: rgba(255,255,255,.75);
@@ -269,10 +272,13 @@
   }
 
   @media (max-width: 560px) {
-    .card { padding: 40px 20px 44px; border-radius: 30px; }
+    .card { padding: 20px; border-radius: 30px; }
+    .card p { margin-top: 10px; font-size: 14px; }
     form { flex-direction: column; gap: 12px; max-width: 100%; }
     .field, button.join { width: 100%; justify-content: center; }
-    main { padding-top: 110px; }
+    main { padding-top: max(16px, env(safe-area-inset-top)); }
+    .social a { width: 44px; height: 44px; }
+    footer { font-size: 12px; gap: 4px 12px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -353,8 +359,6 @@
   </div>
 
   <main>
-    <div class="pill rise d1"><span class="pill-dot" aria-hidden="true"></span><span translate="no">Batch</span></div>
-
     <h1 class="rise d2">Coming soon!</h1>
 
     <section class="card rise d3" aria-labelledby="join-title">
@@ -374,13 +378,13 @@
     </section>
 
     <nav class="social rise d4" aria-label="Batch on social media">
-      <a href="#" aria-label="Batch on Facebook" target="_blank" rel="noopener">
+      <a href="https://www.facebook.com/profile.php?id=61594230505052" aria-label="Batch on Facebook" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.6c0-.9.6-1.1 1-1.1h2.6V1.6L14 1.6C10.1 1.6 9.3 4.5 9.3 6.3v2.2H7v4h2.3V22.4H14V12.5h3.2l.4-4z"/></svg>
       </a>
-      <a href="#" aria-label="Batch on Instagram" target="_blank" rel="noopener">
+      <a href="https://www.instagram.com/batchcampus/" aria-label="Batch on Instagram" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="#" aria-label="Batch on LinkedIn" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/company/batchcampus/" aria-label="Batch on LinkedIn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.25H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg>
       </a>
     </nav>
